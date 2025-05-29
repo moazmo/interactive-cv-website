@@ -54,12 +54,11 @@
             <div class="hero-image">                <div class="profile-card">
                     <div class="profile-image">
                         <img src="https://avatars.githubusercontent.com/u/60578520?v=4" alt="Moaz Muhammad">
-                    </div>
-                    <div class="social-links">
+                    </div>                    <div class="social-links">
                         <a href="https://www.linkedin.com/in/moazmuhammad/?locale=en_US" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/moazmo" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.facebook.com/moaz.mahmed.75" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="mailto:moazmo27@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-link" id="emailButton"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -346,6 +345,46 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-envelope"></i> Let's Connect!</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contact-option">
+                    <div class="contact-icon email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>moazmo27@gmail.com</p>
+                        <a href="mailto:moazmo27@gmail.com" class="contact-btn">
+                            <i class="fas fa-paper-plane"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-divider"></div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p>+201070474845</p>
+                        <a href="https://wa.me/201070474845?text=Hello%20Moaz!%20I%20found%20your%20profile%20and%20would%20like%20to%20connect." class="contact-btn whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

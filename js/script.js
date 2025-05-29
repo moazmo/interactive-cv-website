@@ -367,6 +367,75 @@ class MouseMoveEffect {
     }
 }
 
+// Contact Modal Management
+class ContactModalManager {
+    constructor() {
+        this.modal = document.getElementById('contactModal');
+        this.emailButton = document.getElementById('emailButton');
+        this.closeButton = document.getElementById('modalClose');
+        this.overlay = this.modal?.querySelector('.modal-overlay');
+        this.init();
+    }
+
+    init() {
+        if (!this.modal || !this.emailButton) return;
+        
+        // Open modal when email button is clicked
+        this.emailButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.openModal();
+        });
+
+        // Close modal when close button is clicked
+        this.closeButton.addEventListener('click', () => {
+            this.closeModal();
+        });
+
+        // Close modal when clicking on overlay
+        this.overlay.addEventListener('click', () => {
+            this.closeModal();
+        });
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                this.closeModal();
+            }
+        });
+
+        // Prevent modal content clicks from closing modal
+        this.modal.querySelector('.modal-content').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    openModal() {
+        this.modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Add subtle animation to contact options
+        const options = this.modal.querySelectorAll('.contact-option');
+        options.forEach((option, index) => {
+            setTimeout(() => {
+                option.style.opacity = '1';
+                option.style.transform = 'translateY(0)';
+            }, 100 + (index * 100));
+        });
+    }
+
+    closeModal() {
+        this.modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Reset contact options animation
+        const options = this.modal.querySelectorAll('.contact-option');
+        options.forEach(option => {
+            option.style.opacity = '';
+            option.style.transform = '';
+        });
+    }
+}
+
 // Initialize Application
 class App {
     constructor() {
@@ -380,13 +449,16 @@ class App {
         } else {
             this.start();
         }
-    }    start() {
+    }
+
+    start() {
         // Initialize all managers
         new ThemeManager();
         new NavigationManager();
         new AnimationManager();
         new ParticleSystem();
         new MouseMoveEffect();
+        new ContactModalManager();
         
         // Add smooth scroll behavior
         this.initSmoothScroll();
