@@ -25,9 +25,42 @@ A modern, responsive CV/Resume website built with HTML, CSS, and JavaScript feat
 
 ## 🚀 Getting Started
 
+### Local Development
 1. **Clone or download** this repository
 2. **Open** `index.html` in your web browser
 3. **Customize** the content with your personal information
+
+### Publishing to GitHub
+
+#### Option 1: Create New Repository (Recommended)
+1. **Create a new repository** on GitHub named `your-username.github.io` (for personal site) or any name you prefer
+2. **Add remote origin**:
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+   ```
+3. **Push to GitHub**:
+   ```bash
+   git branch -M main
+   git push -u origin main
+   ```
+
+#### Option 2: Using GitHub CLI
+```bash
+gh repo create YOUR_REPOSITORY_NAME --public --source=. --remote=origin --push
+```
+
+### Deploy to GitHub Pages
+1. Go to your repository **Settings** → **Pages**
+2. Select **Source**: Deploy from a branch
+3. Choose **Branch**: main
+4. Click **Save**
+5. Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME`
+
+### Live Development Server
+For local development with live reload:
+```bash
+npx live-server --port=3000 --host=localhost --open=/
+```
 
 ## 📁 Project Structure
 
