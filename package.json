@@ -1,0 +1,46 @@
+{
+  "name": "interactive-cv-website",
+  "version": "1.0.0",
+  "description": "Modern, responsive CV/Resume website for Moaz Muhammad - Software and AI Engineering Student",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --host=localhost --open=/",
+    "dev": "live-server --port=3000 --host=localhost --open=/ --watch=.",
+    "build": "echo 'No build process needed for static HTML/CSS/JS'",
+    "preview": "live-server --port=3000 --host=localhost --open=/",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "portfolio",
+    "website",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "interactive",
+    "dark-theme",
+    "animations",
+    "software-engineer",
+    "ai-engineer",
+    "python",
+    "student"
+  ],
+  "author": "Moaz Muhammad <moazmo@github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "gh-pages": "^6.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moazmo/interactive-cv-website.git"
+  },
+  "homepage": "https://moazmo.github.io/interactive-cv-website",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
