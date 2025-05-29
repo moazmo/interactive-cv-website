@@ -3,7 +3,6 @@ const themeToggle = document.getElementById('themeToggle');
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
-const contactForm = document.getElementById('contactForm');
 
 // Theme Management
 class ThemeManager {
@@ -258,136 +257,7 @@ class AnimationManager {
             }
         };
 
-        setTimeout(typeWriter, 1000);
-    }
-}
-
-// Form Management
-class FormManager {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => this.handleSubmit(e));
-            this.initFormValidation();
-        }
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Simulate form submission
-        this.showLoading();
-        
-        setTimeout(() => {
-            this.showSuccess();
-            contactForm.reset();
-        }, 2000);
-    }
-
-    showLoading() {
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    }
-
-    showSuccess() {
-        const notification = this.createNotification('Message sent successfully!', 'success');
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
-
-    createNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.textContent = message;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? '#48bb78' : '#f56565'};
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            z-index: 10000;
-            animation: slideInRight 0.3s ease;
-        `;
-        
-        return notification;
-    }
-
-    initFormValidation() {
-        const inputs = contactForm.querySelectorAll('input, textarea');
-        
-        inputs.forEach(input => {
-            input.addEventListener('blur', () => this.validateField(input));
-            input.addEventListener('input', () => this.clearValidation(input));
-        });
-    }
-
-    validateField(field) {
-        const value = field.value.trim();
-        let isValid = true;
-        let message = '';
-
-        if (field.hasAttribute('required') && !value) {
-            isValid = false;
-            message = 'This field is required';
-        } else if (field.type === 'email' && value && !this.isValidEmail(value)) {
-            isValid = false;
-            message = 'Please enter a valid email address';
-        }
-
-        this.showFieldValidation(field, isValid, message);
-    }
-
-    isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    showFieldValidation(field, isValid, message) {
-        this.clearValidation(field);
-
-        if (!isValid) {
-            field.style.borderColor = '#f56565';
-            const errorElement = document.createElement('span');
-            errorElement.className = 'field-error';
-            errorElement.textContent = message;
-            errorElement.style.cssText = `
-                color: #f56565;
-                font-size: 0.8rem;
-                margin-top: 5px;
-                display: block;
-            `;
-            field.parentNode.appendChild(errorElement);
-        } else {
-            field.style.borderColor = '#48bb78';
-        }
-    }
-
-    clearValidation(field) {
-        field.style.borderColor = '';
-        const existingError = field.parentNode.querySelector('.field-error');
-        if (existingError) {
-            existingError.remove();
-        }
-    }
+        setTimeout(typeWriter, 1000);    }
 }
 
 // Particle System for Hero Background
@@ -510,14 +380,11 @@ class App {
         } else {
             this.start();
         }
-    }
-
-    start() {
+    }    start() {
         // Initialize all managers
         new ThemeManager();
         new NavigationManager();
         new AnimationManager();
-        new FormManager();
         new ParticleSystem();
         new MouseMoveEffect();
         
