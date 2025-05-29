@@ -2,6 +2,10 @@
 
 A modern, responsive CV/Resume website built with HTML, CSS, and JavaScript featuring beautiful animations, dark/light theme toggle, and interactive elements.
 
+## 🌐 **LIVE WEBSITE**: [https://moazmo.github.io/interactive-cv-website](https://moazmo.github.io/interactive-cv-website)
+
+> **📧 Click the email button in the hero section to see the beautiful contact modal with email and WhatsApp options!**
+
 ## ✨ Features
 
 - **🌓 Dark/Light Theme Toggle** - Seamless theme switching with persistent storage
